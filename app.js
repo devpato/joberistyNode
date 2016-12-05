@@ -2,10 +2,12 @@ var express = require('express')
 var app = express()
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-var mongojs = require('mongojs');
+//var mongojs = require('mongojs');
+var User = require('./app/models/user');
+var Company = require('./app/models/user');
 //Middleware
 app.use(morgan('dev'));
-var db = mongojs('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',['jbusers'],function(err){
+db = mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',['jbusers'],function(err){
     if(err){
         console.log("Not connection to DB" + err);
         throw err;

@@ -1,19 +1,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//Table for usersSchema
-var UserSchema = new Schema({
+//Table for companySchema
+var CompanySchema = new Schema({
     username:{type: String, lowercase: true, required: true, unique: true},
     password:{type: String, required: true},
-    firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
     email:{type: String, lowercase: true, required: true, unique: true},
-    /*major: {type: String, required: true},
-    jobsApplied:[{
+    name: {type: String, required: true},
+    address: String,
+    website: String,
+    telephone: Number,
+    jobs:[{
         title: String,
         description: String,
-        position: String
-    }]*/
+        position: String,
+        date: Date
+    }]
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Company', CompanySchema);
