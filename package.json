@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pevargasg/joberistyNode/issues"
   },
-  "homepage": "https://github.com/pevargasg/joberistyNode#readme"
+  "homepage": "https://github.com/pevargasg/joberistyNode#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
