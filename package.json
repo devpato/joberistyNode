@@ -1,0 +1,19 @@
+{
+  "name": "jobersity",
+  "version": "1.0.0",
+  "description": "job finder website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pevargasg/joberistyNode.git"
+  },
+  "author": "wearetamo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pevargasg/joberistyNode/issues"
+  },
+  "homepage": "https://github.com/pevargasg/joberistyNode#readme"
+}
