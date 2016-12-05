@@ -36,9 +36,9 @@ app.post('/users',function(req,res){
     user.username = req.body.username;
     user.password = req.body.password;
     user.email = req.body.email;
-    user.firstName = req.body.firstName;
+    /*user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;    
-    user.major = req.body.major;
+    user.major = req.body.major;*/
 
     //Save user
     user.save(); 
