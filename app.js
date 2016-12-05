@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
 //Connection to DB
-db = mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',['jbusers'],function(err){
+//mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
     if(err){
         console.log("Not connection to DB" + err);
         throw err;
@@ -30,17 +31,20 @@ db = mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobe
 
 //Creating Users
 app.post('/users',function(req,res){
-    res.send('testing users route');
-    var user = new User();
+    //res.send('test');
+    var user = new User();       
     user.username = req.body.username;
     user.password = req.body.password;
-    //user.firstName = req.body.firstName;
-    //user.lastName = req.body.lastName;
     user.email = req.body.email;
-    //user.major = req.body.major;
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;    
+    user.major = req.body.major;
+
     //Save user
     user.save(); 
-    res.send('user created!');   
+    res.send('user created!');
+    
+
 });
 
 app.listen(process.env.PORT || 3000, function () {
