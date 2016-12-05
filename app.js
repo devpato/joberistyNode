@@ -15,6 +15,7 @@ app.use(morgan('dev'));
 
 //Connection to DB
 //mongoose.Promise = global.Promise;
+//Feel free to use your own mongoLab link below for testing purposes
 mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
     if(err){
         console.log("Not connection to DB" + err);
