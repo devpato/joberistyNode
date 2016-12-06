@@ -35,14 +35,25 @@ app.post('/users',function(req,res){
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.major = req.body.major;
-    user.save(function(err){
+    if(req.body.username == null || req.body.username == '' ||
+       req.body.password == null || req.body.password == '' ||
+       req.body.email == null || req.body.email == '' ||
+       req.body.firstName == null || req.body.lastName == '' ||
+       req.body.major == null || req.body.major == ''
+      ){
+        res.send('Ensure all the required files have been provided');
+    }
+    else{
+        user.save(function(err){
         if(err){
             res.send("User already exists");
         }
         else{
             res.send('User created!')
         }
-    });    
+    }); 
+    }
+      
 });
 //Creating Company
 app.post('/company',function(req,res){
@@ -54,15 +65,23 @@ app.post('/company',function(req,res){
     company.address = req.body.address;
     company.website = req.body.website;
     company.telephone = req.body.telephone;
-    company.save(function(err){
-        if(err){
-            res.send("Company already exists");
-        }
-        else{
-            res.send('Company created!')
-        }
-    });
-    
+    if(req.body.username == null || req.body.username == '' ||
+       req.body.password == null || req.body.password == '' ||
+       req.body.email == null || req.body.email == '' ||
+       req.body.name == null || req.body.name == ''
+      ){
+        res.send('Ensure all the required files have been provided');
+    }
+    else{
+        company.save(function(err){
+            if(err){
+                res.send("Company already exists");
+            }
+            else{
+                res.send('Company created!')
+            }
+        });
+    } 
 });
 
 app.listen(process.env.PORT || 5000, function () {
