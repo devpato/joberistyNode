@@ -35,8 +35,14 @@ app.post('/users',function(req,res){
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.major = req.body.major;
-    user.save();
-    res.send("User inserted in the DB");
+    user.save(function(err){
+        if(err){
+            res.send("User already exists");
+        }
+        else{
+            res.send('User created!')
+        }
+    });    
 });
 //Creating Company
 app.post('/company',function(req,res){
@@ -48,8 +54,15 @@ app.post('/company',function(req,res){
     company.address = req.body.address;
     company.website = req.body.website;
     company.telephone = req.body.telephone;
-    company.save();
-    res.send("User inserted in the DB");
+    company.save(function(err){
+        if(err){
+            res.send("Company already exists");
+        }
+        else{
+            res.send('Company created!')
+        }
+    });
+    
 });
 
 app.listen(process.env.PORT || 5000, function () {
