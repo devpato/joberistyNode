@@ -38,6 +38,19 @@ app.post('/users',function(req,res){
     user.save();
     res.send("User inserted in the DB");
 });
+//Creating Company
+app.post('/company',function(req,res){
+    var company = new Company();
+    company.username = req.body.username;
+    company.password = req.body.password;
+    company.email = req.body.email;
+    company.name = req.body.name;
+    company.address = req.body.address;
+    company.website = req.body.website;
+    company.telephone = req.body.telephone;
+    company.save();
+    res.send("User inserted in the DB");
+});
 
 app.listen(process.env.PORT || 5000, function () {
   console.log('Example app listening on port 5000!')
