@@ -7,15 +7,15 @@ var bodyParser = require('body-parser');
 //My one modules
 var User = require('./app/models/user');
 var Company = require('./app/models/company');
-
 //Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
+
 //Connection to DB
-//mongoose.Promise = global.Promise;
-//Feel free to use your own mongoLab link below for testing purposes
+
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
     if(err){
         console.log("Not connection to DB" + err);
@@ -25,29 +25,20 @@ mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity
         console.log("Connected to DB");
     }
 });
-//Routes
-/*app.get('/', function (req, res) {
-  res.send('Hello World!')
-})*/
 
 //Creating Users
 app.post('/users',function(req,res){
-    //res.send('test');
-    var user = new User();       
+    var user = new User();
     user.username = req.body.username;
     user.password = req.body.password;
     user.email = req.body.email;
-    /*user.firstName = req.body.firstName;
-    user.lastName = req.body.lastName;    
-    user.major = req.body.major;*/
-
-    //Save user
-    user.save(); 
-    res.send('user created!');
-    
-
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.major = req.body.major;
+    user.save();
+    res.send("User inserted in the DB");
 });
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(process.env.PORT || 5000, function () {
+  console.log('Example app listening on port 5000!')
+});
