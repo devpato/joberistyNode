@@ -1,7 +1,7 @@
 
 angular.module('userController',[])
 
-.controller('regCtrl',function($http){
+.controller('regCtrl',function($http,$location,$timeout){
     
     var app = this;
 
@@ -14,6 +14,10 @@ angular.module('userController',[])
             if(data.data.success){
                 app.loading = false;
                 app.successMsg = data.data.message;
+                $timeout(function(){
+                     $location.path('/');
+                },2000)
+               
             }
             else{
                 app.loading = false;
