@@ -1,12 +1,21 @@
 angular.module('jobersityRoutes',['ngRoute'])
 
-.config(function($routeProvider){
+.config(function($routeProvider, $locationProvider){
 
-    $routeProvider.when('/',{
+    $routeProvider
+    
+    .when('/',{
         templateUrl: 'app/views/pages/home.html'
     }) 
     .when('/about',{
         templateUrl: 'app/views/pages/about.html'
-    }) ;  
+    })    
+    .otherwise({
+        redirectTo: '/'
+    });
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 });
 
