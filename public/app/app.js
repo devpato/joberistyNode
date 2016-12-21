@@ -1,5 +1,5 @@
 
-angular.module('jobersity',['jobersityRoutes'])
+angular.module('jobersity',['jobersityRoutes','userController'])
 
 .config(function(){
     console.log('testing applications');

@@ -9,7 +9,12 @@ angular.module('jobersityRoutes',['ngRoute'])
     }) 
     .when('/about',{
         templateUrl: 'app/views/pages/about.html'
-    })    
+    })
+    .when('/register',{
+        templateUrl: 'app/views/pages//users/register.html',
+        controller: 'regCtrl',
+        controllerAs: 'register'
+    })       
     .otherwise({
         redirectTo: '/'
     });
