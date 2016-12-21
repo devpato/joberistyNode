@@ -23,3 +23,24 @@
     <br>
     <button class="btn btn-primary" type="submit">Register</button>
 </form>
+<br>
+
+<div class="jumbotron text-center" ng-show="register.loading">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading....</p>
+</div>
+
+<br>
+<div class="row show-hide-message" ng-show="register.successMsg">
+    <div class="alert alert-success">{{ register.successMsg }}</div>
+</div>
+<!-- Successful Registration Message -->
+
+<br>
+
+<!-- Failed Registration Message -->
+<div class="row show-hide-message" ng-show="register.errorMsg">
+    <div class="alert alert-danger">{{ register.errorMsg }}</div>
+</div>
+
+<!-- Failed Registration Message -->

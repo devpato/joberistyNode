@@ -18,16 +18,20 @@ module.exports = function(router){
         req.body.email == null || req.body.email == '' ||
         req.body.firstName == null || req.body.lastName == '' ||
         req.body.major == null || req.body.major == ''
-        ){
-            res.send('Ensure all the required files have been provided');
+        )
+        {
+            //res.send('Ensure all the required files have been provided');
+            console.log("blanks");
+            res.json({success: false, message:'Ensure all the required files have been provided'});
         }
         else{
             user.save(function(err){
                 if(err){
-                    res.send("User already exists");
+                    //res.send("User already exists");
+                    res.json({success: false, message:'Username or Email already exists'});
                 }
-                else{
-                    res.send('User created!')
+                else{                    
+                    res.json({success: true, message:'User created!'});
                 }
             }); 
         }
