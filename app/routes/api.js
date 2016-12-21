@@ -4,6 +4,7 @@ var Company = require('../models/company');
 
 module.exports = function(router){
     //Creating Users
+    //http://localhost:5000/api/users
     router.post('/users',function(req,res){
         var user = new User();
         user.username = req.body.username;
