@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "job finder website",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pevargasg/joberistyNode.git"
@@ -16,6 +13,10 @@
     "url": "https://github.com/pevargasg/joberistyNode/issues"
   },
   "homepage": "https://github.com/pevargasg/joberistyNode#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
