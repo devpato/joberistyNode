@@ -16,7 +16,8 @@ app.use('/api/',appRoutes);
 
 //Connection to db in the cloud
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
+//mongoose.connect('mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://wearetamo:Policia9@ds119768.mlab.com:19768/jobersity',function(err){
     if(err){
         console.log("Not connection to DB" + err);
         throw err;
