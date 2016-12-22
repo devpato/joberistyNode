@@ -14,7 +14,11 @@ angular.module('jobersityRoutes',['ngRoute'])
         templateUrl: 'app/views/pages//users/register.html',
         controller: 'regCtrl',
         controllerAs: 'register'
-    })       
+    })
+    .when('/login',{
+        templateUrl: 'app/views/pages//users/login.html',
+
+    })        
     .otherwise({
         redirectTo: '/'
     });
