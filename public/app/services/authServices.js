@@ -6,5 +6,5 @@ angular.module('authServices',[])
             return $http.post('api/users/',regData);
         }
 
-        return userFactory;
+        return authFactory;
 });
