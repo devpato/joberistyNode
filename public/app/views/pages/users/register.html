@@ -1,33 +1,33 @@
 
 <div class="page-header">
-    <h1>User Registration</h1>
+    <h1>Registrate!</h1>
 </div>
 <form ng-submit='register.regUser(regData);'>
     <label>Email:</label>
-    <input class="form-control" type="text" name="email" placeholder="Enter email" ng-model='register.regData.email'>
+    <input class="form-control" type="text" name="email" placeholder="Escriba su correo electronico" ng-model='register.regData.email'>
     <br>
-    <label>Username:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Enter username" ng-model='register.regData.username'>
+    <label>Nombre de usuario:</label>
+    <input class="form-control"  type="text" name="username" placeholder="Escriba su nombre de usuario" ng-model='register.regData.username'>
     <br>
-    <label>First Name:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Enter first name" ng-model='register.regData.firstName'>
+    <label>Nombre:</label>
+    <input class="form-control"  type="text" name="username" placeholder="Escriba su nombre" ng-model='register.regData.firstName'>
     <br>
-    <label>Last Name:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Enter last name" ng-model='register.regData.lastName'>
+    <label>Apellido:</label>
+    <input class="form-control"  type="text" name="username" placeholder="Escriba su apellido" ng-model='register.regData.lastName'>
     <br>
-    <label>Major:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Enter major" ng-model='register.regData.major'>
+    <label>Carrera:</label>
+    <input class="form-control"  type="text" name="username" placeholder="Escriba su carrera" ng-model='register.regData.major'>
     <br>
     <label>Password:</label>
-    <input class="form-control"  type="password" name="password" placeholder="Enter password" ng-model='register.regData.password'>
+    <input class="form-control"  type="password" name="password" placeholder="Escriba su password" ng-model='register.regData.password'>
     <br>
-    <button class="btn btn-primary" type="submit">Register</button>
+    <button class="btn btn-primary" type="submit">Registrate</button>
 </form>
 <br>
 
 <div class="text-center" ng-show="register.loading">
     <span class="glyphicon glyphicon-repeat spinner"></span>
-    <p>Loading....</p>
+    <p>Cargando....</p>
 </div>
 
 <br>

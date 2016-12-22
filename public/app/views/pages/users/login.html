@@ -1,21 +1,21 @@
 <div class="page-header">
-    <h1>User Registration</h1>
+    <h1>Inicio de sesión</h1>
 </div>
 <form ng-submit='main.doLogin(loginData);'>
     
-    <label>Username:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Enter username" ng-model='main.loginData.username'>
+    <label>Usuario:</label>
+    <input class="form-control"  type="text" name="username" placeholder="Nombre de usuario" ng-model='main.loginData.username'>
     <br>    
     <label>Password:</label>
-    <input class="form-control"  type="password" name="password" placeholder="Enter password" ng-model='main.loginData.password'>
+    <input class="form-control"  type="password" name="password" placeholder="Password de la cuenta" ng-model='main.loginData.password'>
     <br>
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Iniciar sesión</button>
 </form>
 <br>
 
 <div class="text-center" ng-show="main.loading">
     <span class="glyphicon glyphicon-repeat spinner"></span>
-    <p>Loading....</p>
+    <p>Cargando....</p>
 </div>
 
 <br>

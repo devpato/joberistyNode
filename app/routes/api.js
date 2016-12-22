@@ -22,16 +22,16 @@ module.exports = function(router){
         {
             //res.send('Ensure all the required files have been provided');
             console.log("blanks");
-            res.json({success: false, message:'Ensure all the required files have been provided'});
+            res.json({success: false, message:'Asegurate que todos los campos fueron llenados'});
         }
         else{
             user.save(function(err){
                 if(err){
                     //res.send("User already exists");
-                    res.json({success: false, message:'Username or Email already exists'});
+                    res.json({success: false, message:'Usuario o Email ya existen'});
                 }
                 else{                    
-                    res.json({success: true, message:'User created!'});
+                    res.json({success: true, message:'Usuario creado!'});
                 }
             }); 
         }
@@ -43,15 +43,15 @@ module.exports = function(router){
            if(err) throw err;
 
            if(!user){
-               res.json({success: false, message: 'Could not athenticate user'});
+               res.json({success: false, message: 'No se encontro a ese usuario'});
            } else if(user){
                if(req.body.password){
                    var validPassword = user.comparePass(req.body.password);
                } 
                if(!validPassword){
-                   res.json({success: false, message: 'Could not authenticate password'});
+                   res.json({success: false, message: 'No se pudo comprobar el password'});
                }else{
-                   res.json({success: true, message: 'User authenticated'});
+                   res.json({success: true, message: 'Usuario atentificado!'});
                }
            }
         }); 
