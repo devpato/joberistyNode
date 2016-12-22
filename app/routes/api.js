@@ -37,21 +37,24 @@ module.exports = function(router){
         }
         
     });
-    //User login
+    //User login this seems to be gucci money
     router.post('/authenticate', function(req,res){
         User.findOne({username: req.body.username}).select('email username password').exec(function(err,user){
-            if(err) throw err;
-            if(!user){
-                res.json({success:false, message: 'cannot authenticate user'});
-            }else if(user){
-               var validPass = user.comparePass(req.body.password);
-               if(!validPass){
-                   res.json({sucess: false, message: 'Cannot authenticate password'});
+           if(err) throw err;
+
+           if(!user){
+               res.json({success: false, message: 'Could not athenticate user'});
+           } else if(user){
+               if(req.body.password){
+                   var validPassword = user.comparePass(req.body.password);
+               } 
+               if(!validPassword){
+                   res.json({success: false, message: 'Could not authenticate password'});
                }else{
-                   res.json({sucess: true, message: 'authenticated password'});
+                   res.json({success: true, message: 'User authenticated'});
                }
-            }
-        });
+           }
+        }); 
     });
     //Creating Company
     router.post('/company',function(req,res){
