@@ -1,6 +1,8 @@
 //My one modules
 var User = require('../models/user');
 var Company = require('../models/company');
+var jwt = require('jsonwebtoken');
+var secret = 'jobersity';
 
 module.exports = function(router){
     //Creating Users
@@ -51,13 +53,14 @@ module.exports = function(router){
                if(!validPassword){
                    res.json({success: false, message: 'No se pudo comprobar el password'});
                }else{
-                   res.json({success: true, message: 'Usuario atentificado!'});
+                   var token = jwt.sign({username: user.username, email: user.email}, secret, {expiresIn: '24h'} );
+                   res.json({success: true, message: 'Usuario atentificado!', token: token});
                }
            }
         }); 
     });
     //Creating Company
-    router.post('/company',function(req,res){
+    router.post('/company', function(req,res){
         var company = new Company();
         company.username = req.body.username;
         company.password = req.body.password;
@@ -86,3 +89,5 @@ module.exports = function(router){
     });
     return router;
 }
+
+//token
