@@ -23,12 +23,12 @@ angular.module('mainController',['authServices'])
 
     });
     if(Auth.isLoggedIn()){
-        console.log('Success: user is looged in');
+        console.log('Success: user is logged in');
         Auth.getUser().then(function(data){
             console.log(data);
         });
     }else{
-        console.log('Failure: user is  not looged in');
+        console.log('Failure: user is NOT looged in');
     }
     this.doLogin = function(loginData){
         app.loading = true;

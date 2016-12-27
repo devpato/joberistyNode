@@ -78,7 +78,7 @@ module.exports = function(router){
 
     });
     router.post('/me',function(req, res){
-        res.send('testing me route');
+        res.send(req.decoded);
     });
     //Creating Company
     router.post('/company', function(req,res){
