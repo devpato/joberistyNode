@@ -9,10 +9,15 @@ angular.module('mainController',['authServices'])
     if (Auth.isLoggedIn()) {
             app.isLoggedIn = true;
             Auth.getUser().then(function(data) {
+                //Retriving the data from the user
                 app.username = data.data.username;
                 app.useremail = data.data.email;
+                app.firstName = data.data.firstName//
+                app.major = data.data.major//
                 app.loadme = true;
-                if (data.data.expired) app.logout();
+                //Printing data form the user
+                console.log("Name :" + data.data.major);//
+                if (data.data.expired) app.logout();                
             });
         } else {
             app.isLoggedIn = false;

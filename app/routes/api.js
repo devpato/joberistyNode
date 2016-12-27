@@ -41,7 +41,7 @@ module.exports = function(router){
     });
     //User login this seems to be gucci money
     router.post('/authenticate', function(req,res){
-        User.findOne({username: req.body.username}).select('email username password').exec(function(err,user){
+        User.findOne({username: req.body.username}).select('email username password firstName major').exec(function(err,user){//
            if(err) throw err;
 
            if(!user){
@@ -53,8 +53,8 @@ module.exports = function(router){
                if(!validPassword){
                    res.json({success: false, message: 'No se pudo comprobar el password'});
                }else{
-                   var token = jwt.sign({username: user.username, email: user.email}, secret, {expiresIn: '24h'} );
-                   res.json({success: true, message: 'Usuario atentificado!', token: token});
+                   var token = jwt.sign({username: user.username, email: user.email, firstName: user.firstName, major: user.major}, secret, {expiresIn: '24h'} );//
+                   res.json({success: true, message: 'Usuario autentificado!', token: token});
                }
            }
         }); 
