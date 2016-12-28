@@ -4,21 +4,25 @@ angular.module('mainController',['authServices'])
 .controller('mainCtrl',function(Auth, $timeout, $location, $rootScope, $window, $route){
     
     var app = this;
+
+    //when we get the user info the load this app
     app.loadme = false;
+
     $rootScope.$on('$routeChangeStart', function() {
-    if (Auth.isLoggedIn()) {
-            app.isLoggedIn = true;
-            Auth.getUser().then(function(data) {
-                //Retriving the data from the user
-                app.username = data.data.username;
-                app.useremail = data.data.email;
-                app.firstName = data.data.firstName//
-                app.major = data.data.major//
-                app.loadme = true;
-                //Printing data form the user
-                console.log("Name :" + data.data.major);//
-                if (data.data.expired) app.logout();                
-            });
+        if (Auth.isLoggedIn()) {
+                app.isLoggedIn = true;
+                Auth.getUser().then(function(data) {
+                    //Retriving the data from the user
+                    app.username = data.data.username;
+                    app.email = data.data.email;
+                    app.firstName = data.data.firstName//
+                    app.password = data.data.password//
+                    app.major = data.data.major//
+                    app.loadme = true;
+                    //Printing data form the user
+                    console.log("Name :" + data.data.major);//
+                    if (data.data.expired) app.logout();                
+                });
         } else {
             app.isLoggedIn = false;
             app.username = '';
@@ -48,6 +52,8 @@ angular.module('mainController',['authServices'])
                 app.successMsg = data.data.message + '....Redireccionando';
                 $timeout(function(){
                      $location.path('/about');
+                     app.loginData = '';
+                     app.successMsg = false;
                 },2000)
                
             }
