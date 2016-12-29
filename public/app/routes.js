@@ -27,7 +27,7 @@ var app = angular.module('jobersityRoutes',['ngRoute'])
     })
     .when('/profile',{
         templateUrl: 'app/views/pages//users/profile.html',
-        authenticated: true
+        //authenticated: true
     })           
     .otherwise({
         redirectTo: '/'
