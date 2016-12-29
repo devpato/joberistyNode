@@ -30,7 +30,7 @@ module.exports = function(router){
             user.save(function(err){
                 if(err){
                     //res.send("User already exists");
-                    res.json({success: false, message:'Usuario o Email ya existen'});
+                    res.json({success: false, message:error.errors.firstName.message});
                 }
                 else{                    
                     res.json({success: true, message:'Usuario creado!'});
