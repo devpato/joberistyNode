@@ -32,6 +32,6 @@ app.get('*',function(req,res){
     res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
-app.listen(process.env.PORT || 5000, function () {
+app.listen(process.env.PORT || 80, function () {
   console.log('Example app listening on port 5000!')
 });
