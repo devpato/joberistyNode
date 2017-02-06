@@ -14,12 +14,19 @@ module.exports = function(router){
         user.email = req.body.email;
         user.firstName = req.body.firstName;
         user.lastName = req.body.lastName;
+        user.university = req.body.university;
         user.major = req.body.major;
+        user.type = req.body.type;
+        user.year = req.body.year;
+        
         if(req.body.username == null || req.body.username == '' ||
         req.body.password == null || req.body.password == '' ||
         req.body.email == null || req.body.email == '' ||
         req.body.firstName == null || req.body.lastName == '' ||
-        req.body.major == null || req.body.major == ''
+        req.body.university == null || req.body.university == '' ||
+        req.body.major == null || req.body.major == '' ||
+        req.body.type == null || req.body.type == '' ||
+        req.body.year == null || req.body.year == ''
         )
         {
             //res.send('Ensure all the required files have been provided');
@@ -53,7 +60,7 @@ module.exports = function(router){
                if(!validPassword){
                    res.json({success: false, message: 'No se pudo comprobar el password'});
                }else{
-                   var token = jwt.sign({username: user.username, email: user.email, firstName: user.firstName, major: user.major}, secret, {expiresIn: '24h'} );//
+                   var token = jwt.sign({username: user.username, email: user.email, firstName: user.firstName,university: user.university, major: user.major, type: user.type, year: user.year}, secret, {expiresIn: '24h'} );//
                    res.json({success: true, message: 'Usuario autentificado!', token: token});
                }
            }

@@ -17,8 +17,11 @@ var UserSchema = new Schema({
     password:{type: String, required: true},
     email:{type: String, lowercase: true, required: true, unique: true},
     firstName: {type: String, required: true, myValidator},
-    lastName: {type: String, required: true},   
+    lastName: {type: String, required: true},
+    university: {type: String, required: true},    
     major: {type: String, required: true},
+    type: {type: String, required: true}, 
+    year: {type: String, required: true}, 
     jobsApplied:[{
         title: String,
         description: String,

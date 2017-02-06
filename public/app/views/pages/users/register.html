@@ -1,8 +1,8 @@
-
-<div class="page-header">
+<br/><br/>
+<div class="container page-header">
     <h1>Registrate!</h1>
 </div>
-<form ng-submit='register.regUser(regData);'>
+<form class="container" ng-submit='register.regUser(regData);'>
     <label>Email:</label>
     <input class="form-control" type="text" name="email" placeholder="Escriba su correo electronico" ng-model='register.regData.email'>
     <br>
@@ -15,8 +15,17 @@
     <label>Apellido:</label>
     <input class="form-control"  type="text" name="username" placeholder="Escriba su apellido" ng-model='register.regData.lastName'>
     <br>
+    <label>Universidad:</label>
+    <input class="form-control"  type="text" name="university" placeholder="Escriba su Universidad" ng-model='register.regData.university'>
+    <br>
     <label>Carrera:</label>
-    <input class="form-control"  type="text" name="username" placeholder="Escriba su carrera" ng-model='register.regData.major'>
+    <input class="form-control"  type="text" name="major" placeholder="Escriba su carrera" ng-model='register.regData.major'>
+    <br>
+    <label>Tipo de Licenciatura:</label>
+    <input class="form-control"  type="text" name="type" placeholder="Escriba su tipo (Licenciatura escolarizada, técnica, posgrado)" ng-model='register.regData.type'>
+    <br>
+    <label>Año de ingreso:</label>
+    <input class="form-control"  type="text" name="year" placeholder="Escriba su año de ingreso" ng-model='register.regData.year'>
     <br>
     <label>Password:</label>
     <input class="form-control"  type="password" name="password" placeholder="Escriba su password" ng-model='register.regData.password'>

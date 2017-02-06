@@ -10,8 +10,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	  <link href="assets/css/nivo-lightbox.css" rel="stylesheet" />
+	  <link href="assets/css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	  <link href="assets/css/animate.css" rel="stylesheet" />
+    <!-- Squad theme CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+	  <link href="assets/color/default.css" rel="stylesheet">
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	  <script src="//fast.eager.io/qcebduPvjH.js"></script>
+
+    
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/angular-route.js"></script>
     <script src="assets/js/angular-animate.js"></script>
@@ -33,56 +43,72 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Jobersity</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Inicio</a></li>
-            <li ng-show="!main.isLoggedIn"><a href="/login">Iniciar sesión </a></li>
-            <li ng-show="!main.isLoggedIn"><a href="/register">Registrate</a></li>
-            <li ng-show="main.isLoggedIn"><a href="#" ng-click="main.logout()">Cerrar la sesión</a></li>
-            <li ng-show="main.isLoggedIn"class="dropdown">
-              <a href="/profile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{main.username}}<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>           
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    
-    <div class="container theme-showcase" role="main">
- 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Bienvenido a Jobersity</h1>
-        <p>Esta applicación web esta en construcción. Puedes empezar a registrarte en nuestra pagina!
-          <br><br>
-          Gracias,
-          <br>
-          Equipo Jobersity.
-        </p>
-      </div>
+        <ul id="gn-menu" class="gn-menu-main">
+          <li class="gn-trigger">
+            <a class="gn-icon gn-icon-menu"><span>Menu</span></a>
+            <nav class="gn-menu-wrapper">
+              <div class="gn-scroller">
+                <ul class="gn-menu">
+                  
+                    <li class="gn-search-item">
+                      <input placeholder="Busqueda" type="search" class="gn-search">
+                      <a class="gn-icon gn-icon-search"><span>Busqueda</span></a>
+                    </li>
+                    <li style= "padding-top: 10px;padding-bottom: 3px; padding-left: 15px;" >
+                      <a href="#about" class=""><i class=" fa fa-question-circle-o fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i> ¿Por qué Jobersity?</a>
+                    </li>
+                    <li style= "padding-top: 10px;padding-bottom: 3px; padding-left: 10px;">
+                      <a href="#service" class=""><i class="fa fa-cubes fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i> Servicios</a>
+                    </li>
+                    <li style= "padding-top: 10px;padding-bottom: 3px; padding-left: 12px;">
+                      <a href="#works" class=""><i class="fa fa-briefcase fa-2x"  style="margin-right: 15px !important;" aria-hidden="true"></i> Empresas Destacadas</a>
+                    </li>
+                    <li ng-show="!main.isLoggedIn" style= "padding-top: 10px;padding-bottom: 3px; padding-left: 17px;">
+                      <a href="/login" class=" "><i class="fa fa-unlock fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i> Iniciar Sesion</a>
+                    </li>
+                    <li ng-show="!main.isLoggedIn" style= "padding-top: 10px;padding-bottom: 3px; padding-left: 10px;">
+                      <a href="/register" class=" "><i class="fa fa-users fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i> Registrate</a>
+                    </li>
+                    <li ng-show="main.isLoggedIn" style= "padding-top: 10px;padding-bottom: 3px; padding-left: 17px;">
+                      <a href="#" ng-click="main.logout()"><i class="fa fa-lock fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i> Cerrar la sesión</a>
+                    </li>
+                    <li ng-show="main.isLoggedIn" style= "padding-top: 10px;padding-bottom: 3px; padding-left: 17px;">
+                      <a href="/profile"><i class="fa fa-user fa-2x" style="margin-right: 15px !important;" aria-hidden="true"></i>Perfil de {{main.username}}</a>
+                    </li>
+                  
+                </ul>
+              </div><!-- /gn-scroller -->
+            </nav>
+          </li>
+          <li><a href="index.html" class="logo">
+            <img class=" img img-responsive" src="assets/img/logo.png"></a>
+            
+          </li>
+          <li class="sociales">
+            <ul class="company-social">
+              <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </li>
+        </ul>
+	    </div>
+    </nav>    
+    <div class="" role="main">
        <div ng-view>
        </div>     
-    </div> <!-- /container -->
+    </div> 
    
 
-   <script src="assets/js/jquery-3.1.1.min.js"></script>
-   <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>	
+    <script src="assets/js/classie.js"></script>
+    <script src="assets/js/gnmenu.js"></script>
+    <script src="assets/js/jquery.scrollTo.js"></script>
+    <script src="assets/js/nivo-lightbox.min.js"></script>
+    <script src="assets/js/stellar.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="assets/js/custom.js"></script>
   </body>
 </html>
