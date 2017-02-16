@@ -27,7 +27,7 @@ var app = angular.module('jobersityRoutes',['ngRoute'])
     })
     .when('/profile',{
         templateUrl: 'app/views/pages//users/profile.html',
-        //authenticated: true
+        authenticated: true
     })           
     .otherwise({
         redirectTo: '/'
@@ -42,7 +42,7 @@ var app = angular.module('jobersityRoutes',['ngRoute'])
 app.run(['$rootScope','Auth','$location',function($rootScope, Auth, $location){
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         if(next.$$route.authenticated == true){
-            if(Auth.isLoggedIn()){
+            if(!Auth.isLoggedIn()){
                 event.preventDefault();
                 $location.path('/');
             }
