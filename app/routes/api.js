@@ -37,31 +37,43 @@ module.exports = function(router){
             user.save(function(err){
                 if(err){
                     //res.send("User already exists");
-                    if(err.errors.email){
-                        res.json({success: false, message:err.errors.email.message});
+                    if(err.errors != null){
+                        if(err.errors.email){
+                            res.json({success: false, message:err.errors.email.message});
+                        }
+                        else if(err.errors.username){
+                            res.json({success: false, message:err.errors.username.message});
+                        }
+                        else if(err.errors.firstName){
+                            res.json({success: false, message:err.errors.firstName.message});
+                        }
+                        else if(err.errors.lastName){
+                            res.json({success: false, message:err.errors.lastName.message});
+                        }
+                        else if(err.errors.university){
+                            res.json({success: false, message:err.errors.university.message});
+                        }
+                        else if(err.errors.major){
+                            res.json({success: false, message:err.errors.major.message});
+                        }
+                        else if(err.errors.type){
+                            res.json({success: false, message:err.errors.type.message});
+                        }
+                        else if(err.errors.password){
+                            res.json({success: false, message:err.errors.password.message});
+                        }
+                        else{
+                            res.json({success: false, message:err});
+                        }
                     }
-                    if(err.errors.username){
-                        res.json({success: false, message:err.errors.username.message});
+                    else if (err) {
+                            if(err.code == 11000){
+                                res.json({success: false, message: 'username o email ya fueron registrados, intenta otro'});
+                            }else{
+                                res.json({success: false, message:err});
+                            }
                     }
-                    if(err.errors.firstName){
-                        res.json({success: false, message:err.errors.firstName.message});
-                    }
-                    if(err.errors.lastName){
-                        res.json({success: false, message:err.errors.lastName.message});
-                    }
-                    if(err.errors.university){
-                        res.json({success: false, message:err.errors.university.message});
-                    }
-                    if(err.errors.major){
-                        res.json({success: false, message:err.errors.major.message});
-                    }
-                    if(err.errors.type){
-                        res.json({success: false, message:err.errors.type.message});
-                    }
-                    if(err.errors.password){
-                        res.json({success: false, message:err.errors.password.message});
-                    }
-                }
+                }     
                 else{                    
                     res.json({success: true, message:'Usuario creado!'});
                 }
