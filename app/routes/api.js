@@ -37,7 +37,21 @@ module.exports = function(router){
             user.save(function(err){
                 if(err){
                     //res.send("User already exists");
-                    res.json({success: false, message:error.errors.firstName.message});
+                    if(err.errors.firstName){
+                        res.json({success: false, message:err.errors.firstName.message});
+                    }
+                    /*else if(err.errors.lastName){
+                        res.json({success: false, message:error.errors.lastName.message});
+                    }
+                    else if(university){
+                        res.json({success: false, message:error.errors.university.message});
+                    }
+                    else if(major){
+                        res.json({success: false, message:error.errors.major.message});
+                    }
+                    else{
+                        res.json({success: false, message:error.errors.type.message});
+                    }*/
                 }
                 else{                    
                     res.json({success: true, message:'Usuario creado!'});
