@@ -23,11 +23,30 @@ var emailValidator = [
         message: 'Escribe un email valido de 3-50 caracteres.'
     })
 ];
+
+var usernameValidator = [
+    validate({
+        validator: 'isAlphanumeric',
+        message: 'El nombre de usuario solo puede tener numeros y letras.'
+    })
+];
+var passwordValidator = [
+    validate({
+        validator: 'matches',
+        arguments: /^(?=.*[a-z])(?=.*[a-z])(?=.*[\d]).{8,20}$/,
+        message: 'Password tiene que tener 8-20 caracteres, por lo menos un numero y una letra mayuscula.'
+    }),
+    validate({
+        validator: 'isLength',
+        arguments: [3-20],
+        message: 'Password tiene que tener 8-20 caracteres.'
+    })
+];
 //Table for usersSchema
 var UserSchema = new Schema({
     //Secure backend for registration
-    username:{type: String, lowercase: true, required: true, unique: true},
-    password:{type: String, required: true},
+    username:{type: String, lowercase: true, required: true, unique: true, validate: usernameValidator},
+    password:{type: String, required: true, validate: passwordValidator },
     email:{type: String, lowercase: true, required: true, unique: true, validate: emailValidator},
     firstName: {type: String, required: true, validate: myValidator},
     lastName: {type: String, required: true, validate: myValidator},

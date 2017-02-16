@@ -37,21 +37,30 @@ module.exports = function(router){
             user.save(function(err){
                 if(err){
                     //res.send("User already exists");
+                    if(err.errors.email){
+                        res.json({success: false, message:err.errors.email.message});
+                    }
+                    if(err.errors.username){
+                        res.json({success: false, message:err.errors.username.message});
+                    }
                     if(err.errors.firstName){
                         res.json({success: false, message:err.errors.firstName.message});
                     }
-                    /*else if(err.errors.lastName){
-                        res.json({success: false, message:error.errors.lastName.message});
+                    if(err.errors.lastName){
+                        res.json({success: false, message:err.errors.lastName.message});
                     }
-                    else if(university){
-                        res.json({success: false, message:error.errors.university.message});
+                    if(err.errors.university){
+                        res.json({success: false, message:err.errors.university.message});
                     }
-                    else if(major){
-                        res.json({success: false, message:error.errors.major.message});
+                    if(err.errors.major){
+                        res.json({success: false, message:err.errors.major.message});
                     }
-                    else{
-                        res.json({success: false, message:error.errors.type.message});
-                    }*/
+                    if(err.errors.type){
+                        res.json({success: false, message:err.errors.type.message});
+                    }
+                    if(err.errors.password){
+                        res.json({success: false, message:err.errors.password.message});
+                    }
                 }
                 else{                    
                     res.json({success: true, message:'Usuario creado!'});
