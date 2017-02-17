@@ -38,7 +38,7 @@ var passwordValidator = [
     }),
     validate({
         validator: 'isLength',
-        arguments: [3-20],
+        arguments: [8-20],
         message: 'Password tiene que tener 8-20 caracteres.'
     })
 ];
