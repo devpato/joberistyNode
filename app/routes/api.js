@@ -81,6 +81,29 @@ module.exports = function(router){
         }
         
     });
+    //Check username
+   router.post('/checkusername', function(req,res){
+        User.findOne({username: req.body.username}).select('username').exec(function(err,user){//
+           if(err) throw err;
+            if(user){
+                res.json({success: false, message: "El usuario ya esta tomado"});
+            }else{
+                res.json({success: true, message: "Nombre de usuario valido"});
+            }
+        }); 
+    });
+    //Check email
+    router.post('/checkemail', function(req,res){
+        User.findOne({email: req.body.email}).select('email').exec(function(err,user){//
+           if(err) throw err;
+            if(user){
+                res.json({success: false, message: "El e-mail ya esta tomado"});
+            }else{
+                res.json({success: true, message: "E-mail de usuario valido"});
+            }
+        }); 
+    });
+    // ng-blur="register.checkUsername(regData);"*/
     //User login this seems to be gucci money
     router.post('/authenticate', function(req,res){
         User.findOne({username: req.body.username}).select('email username password firstName major').exec(function(err,user){//

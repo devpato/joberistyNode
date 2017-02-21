@@ -1,10 +1,18 @@
-<div ng-class="{'has-success':(regForm.password.$valid && !regForm.password.$prestine) , 'has-error':(!regForm.password.$valid && !regForm.password.$prestine) || (!regForm.password.$valid && regForm.$submitted)}">
-            <label>Password:</label>
-        <input class="form-control" password="text" name="password" placeholder="Escriba su password: (Licenciatura escolarizada,tecnica,posgrado)" ng-model='register.regData.password' ng-pattern="/^\d{4}$/" required>
-        <p class="help-block" ng-show="(!regForm.password.$prestine && regForm.password.$error.required) || (regForm.$submitted && regForm.password.$error.required)">Este campo es obligatorio</p>
-        <ul class="help-block" ng-show="(!regForm.password.$prestine && regForm.password.$error.pattern) ||(!regFormpassword.$prestine && refFrom.password.$error.minlenght) || (!regForm.password.$prestine && refFrom.password.$error.maxlenght)">
-            <li>Debe tener un numero minimo</li>
-            <li>Debe tener una letra mayuscula minimo</li>
-            <li>Deben de tener 8 caracteres minimo</li>
-        </ul>
-    </div>
+this.checkEmail = function(regData){
+        app.checkingEmail = true;//
+        app.emailMsg = false;//
+        app.emailInvalid = true; //    
+
+        User.checkEmail(app.regData).then(function(data){//
+            if(!data.data.message){
+                app.checkingEmail = false;//
+                app.EmailInvalid = false;//
+                app.EmailMsg = data.data.message;//
+            }else{
+                app.checkingUsername = false;//
+                app.usernameInvalid = false;//
+                app.usernameMsg = data.data.message;//
+            }
+            
+        });
+    }
